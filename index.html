@@ -5,8 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional Capacitor Manufacturer specializing in high-quality Snap-in Capacitors, Screw Terminal Capacitors, Aluminum Electrolytic Capacitors with excellent performance for industrial and electronic applications. Worldwide shipping and custom solutions available.">
     <meta name="keywords" content="capacitor manufacturer, snap-in capacitor, screw terminal capacitor, aluminum electrolytic capacitor, electrolytic capacitor supplier, high voltage capacitor, low esr capacitor, long life capacitor, industrial capacitor, electronic components manufacturer, capacitor factory, CD292 capacitor, CD293 capacitor, CD135 capacitor, CD136 capacitor, worldwide capacitor supplier, bulk capacitors, custom capacitor solutions">
-    <title>Aluminum Electrolytic Capacitor Manufacturer - HUAYU From China</title>
+    <title>Capacitor Manufacturer - HUAYU</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RN0916472"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-1RN0916472');
+      
+      // 事件跟踪
+      document.addEventListener('DOMContentLoaded', function() {
+        // 跟踪联系按钮点击
+          // 获取所有指向contact的链接
+          const contactLinks = document.querySelectorAll('a[href="#contact"]');
+          contactLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              gtag('event', 'contact_click', {
+                'event_category': 'engagement',
+                'event_label': 'contact_button'
+              });
+            });
+          });
+          
+          // 获取所有包含Contact文本的按钮
+          const buttons = document.querySelectorAll('button');
+          buttons.forEach(button => {
+            if (button.textContent.includes('Contact')) {
+              button.addEventListener('click', function() {
+                gtag('event', 'contact_click', {
+                  'event_category': 'engagement',
+                  'event_label': 'contact_button'
+                });
+              });
+            }
+          });
+        
+        // 跟踪产品点击
+        const productLinks = document.querySelectorAll('.product-card a, a[href="#products"]');
+        productLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            gtag('event', 'product_click', {
+              'event_category': 'engagement',
+              'event_label': this.textContent.trim() || 'products_section'
+            });
+          });
+        });
+        
+        // 跟踪Email和WhatsApp点击
+        const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+        emailLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            gtag('event', 'email_click', {
+              'event_category': 'engagement',
+              'event_label': 'email_contact'
+            });
+          });
+        });
+        
+        const whatsappLinks = document.querySelectorAll('a[href*="whatsapp"]');
+        whatsappLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            gtag('event', 'whatsapp_click', {
+              'event_category': 'engagement',
+              'event_label': 'whatsapp_contact'
+            });
+          });
+        });
+        
+        // 跟踪页面滚动深度
+        let scrollTracked = {
+          '25': false,
+          '50': false,
+          '75': false,
+          '100': false
+        };
+        
+        window.addEventListener('scroll', function() {
+          const scrollPosition = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.body.scrollHeight;
+          const scrollPercentage = Math.round((scrollPosition / (docHeight - windowHeight)) * 100);
+          
+          if (scrollPercentage >= 25 && !scrollTracked['25']) {
+            gtag('event', 'scroll_depth', {
+              'event_category': 'engagement',
+              'event_label': '25_percent'
+            });
+            scrollTracked['25'] = true;
+          } else if (scrollPercentage >= 50 && !scrollTracked['50']) {
+            gtag('event', 'scroll_depth', {
+              'event_category': 'engagement',
+              'event_label': '50_percent'
+            });
+            scrollTracked['50'] = true;
+          } else if (scrollPercentage >= 75 && !scrollTracked['75']) {
+            gtag('event', 'scroll_depth', {
+              'event_category': 'engagement',
+              'event_label': '75_percent'
+            });
+            scrollTracked['75'] = true;
+          } else if (scrollPercentage >= 95 && !scrollTracked['100']) {
+            gtag('event', 'scroll_depth', {
+              'event_category': 'engagement',
+              'event_label': '100_percent'
+            });
+            scrollTracked['100'] = true;
+          }
+        });
+      });
+    </script>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -83,6 +193,7 @@
         .nav-links {
             display: flex;
             gap: 24px;
+            align-items: center;
         }
 
         .nav-link {
@@ -90,10 +201,74 @@
             color: var(--text-dark);
             font-weight: 500;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
         }
 
         .nav-link:hover {
             color: var(--primary-color);
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+        }
+        .email-icon i {
+            font-size: 20px;
+            color: #007bff;
+        }
+        
+        /* Dropdown styles */
+        .nav-item {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            min-width: 160px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                min-width: auto;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #f8f9fa;
+            }
+        }
+        
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+        
+        .dropdown-item i {
+            margin-right: 10px;
         }
 
         .mobile-menu-btn {
@@ -1179,6 +1354,30 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .language-switcher a {
+            color: white;
+            text-decoration: underline;
+            margin: 0 8px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+        }
+        
         /* Footer */
         footer {
             background-color: #0f172a;
@@ -1343,7 +1542,13 @@
                     <a href="#about" class="nav-link">About</a>
                     <a href="#products" class="nav-link">Products</a>
                     <a href="#technical-docs" class="nav-link">Technical Docs</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <div class="dropdown-content">
+                            <a href="mailto:zuhu.liu@gmail.com" class="dropdown-item"><i class="fas fa-envelope"></i> Email Us</a>
+                            <a href="https://wa.me/8618912241508" target="_blank" class="dropdown-item"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                        </div>
+                    </div>
                 </nav>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -1356,26 +1561,28 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Professional Capacitor Manufacturer Since 1987</h1>
-                <p>Focus on snap-in and screw terminal aluminum electrolytic capacitors</p>
+                <h1>Solution for Power Supply Design Challenges</h1>
+                <p>We solve lifetime, stability, and cost problems in power electronics with our high-performance aluminum electrolytic capacitors</p>
                 <div class="cta-buttons">
                     <a href="#products" class="btn btn-primary">
-                        View Products
+                        Explore Solutions
                     </a>
                     <a href="#contact" class="btn btn-secondary">
-                        Contact Us
+                        Get Expert Support
                     </a>
                 </div>
             </div>
         </div>
     </section>
+    
+
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>Leading Capacitor Manufacturer</h2>
-                <p>Professional manufacturer with 38+ years of excellence in aluminum electrolytic capacitors</p>
+                <h2>Power Supply Design Solutions Provider</h2>
+                <p>38+ years of expertise solving power electronics challenges with reliable capacitor technology</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
@@ -1413,12 +1620,12 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Solutions Section -->
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Premium Capacitor Products</h2>
-                <p>As a leading capacitor manufacturer, we provide high quality capacitors for various applications</p>
+                <h2>Advanced Capacitor Solutions</h2>
+                <p>Engineered to solve lifetime, stability, and cost challenges in power supply design</p>
             </div>
             <div class="product-grid">
                 <div class="product-card">
@@ -1504,7 +1711,7 @@
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD136.pdf" target="_blank">CD136</a></span>
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD13L.pdf" target="_blank">CD13L</a></span>
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD92.pdf" target="_blank">CD92</a></span>
-                                <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD92.pdf" target="_blank">CD92H</a></span>
+                                <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD92H.pdf" target="_blank">CD92H</a></span>
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD92L.pdf" target="_blank">CD92L</a></span>
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD13N.pdf" target="_blank">CD13N</a></span>
                                 <span class="model-tag"><a href="https://capacitormanufacturer.com/pdf/CD13NH.pdf" target="_blank">CD13NH</a></span>
@@ -1860,11 +2067,11 @@
                     <div class="stat-label">Square Meters Facility</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-number" data-count="95+">0</div>
                     <div class="stat-label">% On-Time Delivery</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="30">0</div>
+                    <div class="stat-number" data-count="40+">0</div>
                     <div class="stat-label">Countries Served</div>
                 </div>
             </div>
@@ -1989,7 +2196,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Address</h4>
-                                <p>Zhangzhishan Town, Nantong City, Jiangsu Province, China</p>
+                                <p>Zhangzhishan, Nantong, Jiangsu, China</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2008,6 +2215,15 @@
                             <div class="contact-text">
                                 <h4>Email</h4>
                                 <p><a href="mailto:zuhu.liu@gmail.com" style="color: #3b82f6; text-decoration: none;">zuhu.liu@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/8618912241508" target="_blank" style="color: #3b82f6; text-decoration: none;">+86 189 1224 1508</a></p>
                             </div>
                         </div>
                     </div>
@@ -2069,13 +2285,13 @@
                     <ul>
                         <li><a href="#products">Snap-in Capacitors</a></li>
                         <li><a href="#products">Screw Terminal Capacitors</a></li>
+                        <li><a href="#technical-docs">Technical Documents</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li>Zhangzhishan Town, Nantong City, Jiangsu Province, China</li>
-                        <li>Wechat / Whatsapp :<br> +86 189 1224 1508</li>
+                        <li>Zhangzhishan, Nantong, Jiangsu, China</li>
                         <li><a href="mailto:zuhu.liu@gmail.com" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">zuhu.liu@gmail.com</a></li>
                     </ul>
                 </div>
@@ -2086,12 +2302,17 @@
         </div>
     </footer>
 
+
+    
     <script>
         // Simple mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownContent = document.querySelector('.dropdown-content');
         
         if (mobileMenuBtn && navLinks) {
+            // Handle mobile menu toggle
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
                 navLinks.style.flexDirection = 'column';
@@ -2104,6 +2325,52 @@
                 navLinks.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
                 navLinks.style.gap = '15px';
             });
+            
+            // Add window resize listener to reset navigation on larger screens
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    // Reset to desktop styles
+                    navLinks.style.display = '';
+                    navLinks.style.flexDirection = '';
+                    navLinks.style.position = '';
+                    navLinks.style.top = '';
+                    navLinks.style.right = '';
+                    navLinks.style.background = '';
+                    navLinks.style.padding = '';
+                    navLinks.style.borderRadius = '';
+                    navLinks.style.boxShadow = '';
+                    navLinks.style.gap = '';
+                    
+                    // Reset dropdown for desktop
+                    if (dropdownContent) {
+                        dropdownContent.style.display = '';
+                    }
+                }
+            });
+            
+            // Handle dropdown in mobile view
+            if (dropdown && dropdownContent) {
+                dropdown.addEventListener('click', (e) => {
+                    // Prevent event propagation
+                    e.stopPropagation();
+                    
+                    // Toggle dropdown visibility on mobile
+                    if (window.innerWidth <= 768) {
+                        if (dropdownContent.style.display === 'block') {
+                            dropdownContent.style.display = 'none';
+                        } else {
+                            dropdownContent.style.display = 'block';
+                        }
+                    }
+                });
+                
+                // Close dropdown when clicking elsewhere
+                document.addEventListener('click', () => {
+                    if (window.innerWidth <= 768 && dropdownContent) {
+                        dropdownContent.style.display = 'none';
+                    }
+                });
+            }
         }
 
         // Smooth scrolling for anchor links
@@ -2135,16 +2402,18 @@
             const speed = 200;
             
             counters.forEach(counter => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
+                const dataCount = counter.getAttribute('data-count');
+                const hasPlus = dataCount.includes('+');
+                const target = parseInt(dataCount);
+                const count = +counter.innerText.split('+')[0];
                 
                 const increment = target / speed;
                 
                 if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
+                    counter.innerText = hasPlus ? Math.ceil(count + increment) + '+' : Math.ceil(count + increment);
                     setTimeout(() => animateNumbers(), 20);
                 } else {
-                    counter.innerText = target;
+                    counter.innerText = dataCount;
                 }
             });
         }
