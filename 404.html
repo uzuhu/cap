@@ -6,6 +6,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="https://capacitormanufacturer.com/images/favicon.svg">
     <link rel="apple-touch-icon" href="https://capacitormanufacturer.com/images/favicon.svg">
+    <meta name="description" content="The page you're looking for isn't available. HUAYU is a professional aluminum electrolytic capacitor manufacturer with 38+ years experience in snap-in and screw terminal capacitors.">
+    <meta name="keywords" content="capacitor manufacturer, aluminum electrolytic capacitor, page not found, error 404, snap-in capacitor, screw terminal capacitor">
     <title>Page Not Found - HUAYU Capacitor Manufacturer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
     <style>
@@ -332,10 +334,90 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
+            const dropdown = document.querySelector('.dropdown');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            
+            if (mobileMenuBtn && navLinks) {
+                // 处理移动菜单切换
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '70px';
+                    navLinks.style.right = '20px';
+                    navLinks.style.background = '#f8f9fa';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.borderRadius = '5px';
+                    navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                    navLinks.style.gap = '15px';
+                    navLinks.style.zIndex = '1001';
+                    
+                    // 更新链接颜色以在白色背景上可见
+                    const navItems = navLinks.querySelectorAll('.nav-link');
+                    navItems.forEach(item => {
+                        item.style.color = '#333';
+                    });
+                });
+                
+                // 添加窗口大小调整监听器，在大屏幕上重置导航
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        // 重置为桌面样式
+                        navLinks.style.display = '';
+                        navLinks.style.flexDirection = '';
+                        navLinks.style.position = '';
+                        navLinks.style.top = '';
+                        navLinks.style.right = '';
+                        navLinks.style.background = '';
+                        navLinks.style.padding = '';
+                        navLinks.style.borderRadius = '';
+                        navLinks.style.boxShadow = '';
+                        navLinks.style.gap = '';
+                        navLinks.style.zIndex = '';
+                        
+                        // 重置链接颜色
+                        const navItems = navLinks.querySelectorAll('.nav-link');
+                        navItems.forEach(item => {
+                            item.style.color = '';
+                        });
+                        
+                        // 重置下拉菜单
+                        if (dropdownContent) {
+                            dropdownContent.style.display = '';
+                            dropdownContent.style.position = '';
+                            dropdownContent.style.background = '';
+                            dropdownContent.style.color = '';
+                        }
+                    }
+                });
+                
+                // 处理移动视图中的下拉菜单
+                if (dropdown && dropdownContent) {
+                    dropdown.addEventListener('click', (e) => {
+                        // 阻止事件冒泡
+                        e.stopPropagation();
+                        
+                        // 在移动视图中切换下拉菜单可见性
+                        if (window.innerWidth <= 768) {
+                            if (dropdownContent.style.display === 'block') {
+                                dropdownContent.style.display = 'none';
+                            } else {
+                                dropdownContent.style.display = 'block';
+                                dropdownContent.style.position = 'static';
+                                dropdownContent.style.background = '#f8f9fa';
+                                dropdownContent.style.color = '#333';
+                            }
+                        }
+                    });
+                    
+                    // 点击其他地方关闭下拉菜单
+                    document.addEventListener('click', () => {
+                        if (window.innerWidth <= 768 && dropdownContent) {
+                            dropdownContent.style.display = 'none';
+                        }
+                    });
+                }
+            }
         });
     </script>
 </body>
